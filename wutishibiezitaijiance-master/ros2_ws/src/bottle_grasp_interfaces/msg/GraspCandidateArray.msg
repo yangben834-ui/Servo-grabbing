@@ -1,0 +1,3 @@
+std_msgs/Header header
+bool perception_valid
+bottle_grasp_interfaces/GraspCandidatePoints[] candidates

@@ -1,0 +1,5 @@
+#!/usr/bin/env python3
+from bottle_grasp_perception.grasp_pose_node import main
+
+if __name__ == "__main__":
+    main()

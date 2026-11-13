@@ -1,0 +1,25 @@
+transform_matrix:
+- - 0.9728798711642308
+  - 0.027565355369594553
+  - -0.22966259483602774
+  - 0.07672640528062762
+- - 0.06140015711664662
+  - 0.926480577288415
+  - 0.37130009508937173
+  - 0.24104302600994382
+- - 0.2230129525151411
+  - -0.37533170808056354
+  - 0.8996617875178461
+  - 0.21318560969153053
+- - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+metadata:
+  calib_date: 2026-10-08 13:24
+  method: Tsai-Lenz
+  frame_convention: camera_to_base
+  calibration_mode: eye_to_hand
+  translation_unit: meter
+  rotation_unit: radian
+  valid_samples_count: 32

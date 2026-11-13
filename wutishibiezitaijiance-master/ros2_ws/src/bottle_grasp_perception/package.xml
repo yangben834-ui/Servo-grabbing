@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>bottle_grasp_perception</name>
+  <version>0.1.0</version>
+  <description>ROS 2 RGB-D bottle segmentation and grasp pose perception node.</description>
+  <maintainer email="maintainer@example.com">maintainer</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+  <depend>bottle_grasp_interfaces</depend>
+  <depend>geometry_msgs</depend>
+  <depend>message_filters</depend>
+  <depend>rclpy</depend>
+  <depend>rcl_interfaces</depend>
+  <depend>sensor_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>visualization_msgs</depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-opencv</exec_depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

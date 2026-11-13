@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>bottle_grasp_executor</name>
+  <version>0.1.0</version>
+  <description>订阅 bottle_grasp_perception 抓取候选, 经手眼变换生成 base_link 目标并驱动 H3001 机械臂抓取瓶子</description>
+  <maintainer email="2745146351@qq.com">qin</maintainer>
+  <license>Apache-2.0</license>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>std_srvs</exec_depend>
+  <exec_depend>h3001_msgs</exec_depend>
+  <exec_depend>bottle_grasp_interfaces</exec_depend>
+  <!-- _resolve_gripper_script 用它在 install/ 里定位 share/.../scripts/gripper_grip_hold.py -->
+  <exec_depend>ament_index_python</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

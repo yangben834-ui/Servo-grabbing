@@ -1,0 +1,33 @@
+{
+  "created_at": "2026-08-25T15:36:24.889379+08:00",
+  "port": "/dev/ttyACM0",
+  "command_id": 1,
+  "feedback_id": 257,
+  "open_samples": {
+    "name": "OPEN",
+    "position": 0.1917012283512629,
+    "minimum": 0.1917012283512629,
+    "maximum": 0.1917012283512629,
+    "stddev": 0.0,
+    "samples": 20
+  },
+  "close_samples": {
+    "name": "CLOSE",
+    "position": -2.5958962386511026,
+    "minimum": -2.5958962386511026,
+    "maximum": -2.5958962386511026,
+    "stddev": 0.0,
+    "samples": 20
+  },
+  "calibration": {
+    "open_mechanical": 0.1917012283512629,
+    "close_mechanical": -2.5958962386511026,
+    "safe_open": 0.052321355001144626,
+    "safe_close": -2.4565163653009843,
+    "safe_min": -2.4565163653009843,
+    "safe_max": 0.052321355001144626,
+    "travel": 2.7875974670023655,
+    "inward_margin": 0.13937987335011828,
+    "opening_direction": 1
+  }
+}

@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="L4002-0100-六轴行星臂总成(带手爪)__URDF">
+  <link name="link_base">
+    <inertial>
+      <origin xyz="0.00334646637570108 7.55797183333805E-06 0.0409951815740261" rpy="0 0 0" />
+      <mass value="0.215460551581839" />
+      <inertia ixx="0.000139261334561099" ixy="-2.8325509623602E-08" ixz="4.96155015930721E-06" iyy="0.000136788269508927" iyz="6.35590697817094E-08" izz="0.000179106069243259" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://L4002-0100-六轴行星臂总成(带手爪)__URDF/meshes/link_base.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.913725490196078 0.925490196078431 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://L4002-0100-六轴行星臂总成(带手爪)__URDF/meshes/link_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="link_1">
+    <inertial>
+      <origin xyz="6.68596739624282E-05 -0.00600457394637656 -0.00475715962370406" rpy="0 0 0" />
+      <mass value="0.14513318731342" />
+      <inertia ixx="5.66690256402131E-05" ixy="-1.40879407510524E-07" ixz="1.16202015894628E-08" iyy="7.56659890370121E-05" iyz="4.10410051434276E-06" izz="5.91381062345572E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://L4002-0100-六轴行星臂总成(带手爪)__URDF/meshes/link_1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.913725490196078 0.925490196078431 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://L4002-0100-六轴行星臂总成(带手爪)__URDF/meshes/link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint1" type="revolute">
+    <origin xyz="0.0067562 0 0.1125" rpy="0 0 0" />
+    <parent link="link_base" />
+    <child link="link_1" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.62" upper="2.62" effort="100" velocity="5" />
+  </joint>
+  <link name="link_2">
+    <inertial>
+      <origin xyz="0.213702497470042 0.0264199595654225 0.00486044196640039" rpy="0 0 0" />
+      <mass value="0.216437067118041" />
+      <inertia ixx="6.15152903081268E-05" ixy="-6.15338560748248E-06" ixz="1.92529978538567E-07" iyy="0.000278020312182482" iyz="-1.9587021996281E-08" izz="0.00030413366000514" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://L4002-0100-六轴行星臂总成(带手爪)__URDF/meshes/link_2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.913725490196078 0.925490196078431 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://L4002-0100-六轴行星臂总成(带手爪)__URDF/meshes/link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2" type="revolute">
+    <origin xyz="0 0 0" rpy="1.5708 0 3.1416" />
+    <parent link="link_1" />
+    <child link="link_2" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14159265359" upper="3.14159265359" effort="100" velocity="5" />
+  </joint>
+  <link name="link_3">
+    <inertial>
+      <origin xyz="-0.0182323095970035 -0.116625959864809 -0.00186630911289527" rpy="0 0 0" />
+      <mass value="0.113916572806302" />
+      <inertia ixx="5.91035444135254E-05" ixy="-3.91808771350273E-06" ixz="1.68783528245269E-07" iyy="3.605918498258E-05" iyz="3.07181588931608E-07" izz="6.76898832386733E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://L4002-0100-六轴行星臂总成(带手爪)__URDF/meshes/link_3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://L4002-0100-六轴行星臂总成(带手爪)__URDF/meshes/link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_3" type="revolute">
+    <origin xyz="0.282 0.046744 0" rpy="0 0 -1.5708" />
+    <parent link="link_2" />
+    <child link="link_3" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14159265359" upper="3.14159265359" effort="100" velocity="5" />
+  </joint>
+  <link name="link_4">
+    <inertial>
+      <origin xyz="-0.000103998173988484 -0.00239615268202895 -0.00342391419639249" rpy="0 0 0" />
+      <mass value="0.0600979652636732" />
+      <inertia ixx="1.64877800125775E-05" ixy="7.37091491737528E-08" ixz="1.76400895753516E-07" iyy="2.06831321178758E-05" iyz="-1.50179100014708E-06" izz="1.59843317748191E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://L4002-0100-六轴行星臂总成(带手爪)__URDF/meshes/link_4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.913725490196078 0.925490196078431 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://L4002-0100-六轴行星臂总成(带手爪)__URDF/meshes/link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_4" type="revolute">
+    <origin xyz="-0.022 -0.25 0" rpy="1.5708 0 0" />
+    <parent link="link_3" />
+    <child link="link_4" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.75" upper="1.75" effort="100" velocity="5" />
+  </joint>
+  <link name="link_5">
+    <inertial>
+      <origin xyz="-0.0004185826722648 -0.0597888081235279 -0.00401582124976286" rpy="0 0 0" />
+      <mass value="0.0630673955579629" />
+      <inertia ixx="1.85288374233073E-05" ixy="-7.84859865991786E-09" ixz="7.47901998277062E-09" iyy="2.44641336542862E-05" iyz="1.60968242446925E-06" izz="1.53561194892979E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://L4002-0100-六轴行星臂总成(带手爪)__URDF/meshes/link_5.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.913725490196078 0.925490196078431 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://L4002-0100-六轴行星臂总成(带手爪)__URDF/meshes/link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_5" type="revolute">
+    <origin xyz="0 0 0" rpy="-1.5708 0 0" />
+    <parent link="link_4" />
+    <child link="link_5" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.75" upper="1.75" effort="100" velocity="5" />
+  </joint>
+  <link name="link_6">
+    <inertial>
+      <origin xyz="-3.21211486454254E-05 -5.86406834817394E-06 0.0538028920783349" rpy="0 0 0" />
+      <mass value="0.182204541051824" />
+      <inertia ixx="8.18497771764008E-05" ixy="2.27830169131908E-08" ixz="-5.74205174630711E-08" iyy="4.89035409865179E-05" iyz="-9.83822725858794E-10" izz="9.19931564278667E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://L4002-0100-六轴行星臂总成(带手爪)__URDF/meshes/link_6.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.913725490196078 0.925490196078431 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://L4002-0100-六轴行星臂总成(带手爪)__URDF/meshes/link_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6" type="revolute">
+    <origin xyz="0 -0.1015 0" rpy="1.5708 0 0" />
+    <parent link="link_5" />
+    <child link="link_6" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14159265" upper="3.14159265" effort="100" velocity="5" />
+  </joint>
+</robot>

@@ -1,0 +1,41 @@
+h3001_bridge:
+  ros__parameters:
+    use_sim_time: false
+
+    # CAN 适配器 (gs_usb USB-CAN): 接口名与波特率必须与 `ip -details link show can0` 一致
+    can_interface: socketcan
+    can_channel: can0
+    can_bitrate: 1000000
+
+    # 反馈发布频率 (Hz)
+    feedback_rate: 100.0
+
+    # 上电后自动使能六轴电机; 首次调试建议 false, 确认 CAN 通信正常后再打开
+    auto_enable: true
+
+    # MCU 运动速度百分比 (0~100)。
+    # 测试阶段用 10, 确认动作无误后再逐步提高。
+    # 注意: 这是全局速度, /control/move_p 与 /control/move_j 共用。
+    speed_percent: 10
+
+    # ── 固件 RPY 约定修正 (临时方案, 当前关闭) ──
+    # H3001 固件上报的 RPY 与 ROS/松灵约定不一致, 直接转四元数姿态方向相反。
+    # true: 反馈与指令两个方向都对 rx/ry 取反。
+    # 取反是自逆的, 所以两个方向是同一个操作 —— 但必须成对生效:
+    # 只改反馈侧会让 orientation_source=current_tcp 的「反馈姿态原样回发」
+    # 变成反向姿态, 机械臂转错。
+    #
+    # 2026-09-15 按何工要求加入并默认打开; 同日改回 false, 原因是它与
+    # bottle_grasp_executor 的 side_orientation_xyzw 不自洽:
+    # 那个四元数是 2026-09-14 从**未取反**的 bridge 读出的, 所以它仍是固件约定。
+    # 打开取反后, _pose_to_list 会把它的 rx/ry 再取反一次下发, 实测使机械臂偏离
+    # 记录姿态 14.37° (记录 -2.918/6.569/-170.19 -> 下发 2.918/-6.569/-170.19)。
+    # 关闭后下发的固件角恰好等于记录值, 那个四元数无需改动。
+    # 注意: 本开关只影响姿态, 位置 x/y/z 两个方向都是原样透传 ——
+    # 打开或关闭都不会改变感知算出的抓取点坐标。
+    #
+    # 若将来某台臂确认需要取反: 置 true, 同时把 executor 的 side_orientation_xyzw
+    # 换成 x、y 取反后的值, 否则会重现上面那 14°。下游代码零改动。
+    invert_rx_ry: false
+
+    robot_base_frame: base_link

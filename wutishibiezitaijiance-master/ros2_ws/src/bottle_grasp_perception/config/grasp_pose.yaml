@@ -1,0 +1,62 @@
+bottle_grasp_perception:
+  ros__parameters:
+    # model_path is normally overridden by the launch file.
+    model_path: best_train_multi
+    confidence: 0.5
+    # Ultralytics imgsz；减小可提速，但小目标分割精度通常会下降。
+    model_input_size: 640
+    class_ids: ""
+    # iou 使用本仓库轻量跟踪器；PT 还可用 bytetrack、botsort、ocsort 或自定义 YAML。
+    # RKNN 后端不调用 Ultralytics tracker，指定其他值时自动回退到 iou。
+    tracker: iou
+
+    color_topic: /camera/color/image_raw
+    # Orbbec 驱动在 depth_registration=true 时仍使用以下话题名；此时深度已对齐到彩色图。
+    depth_topic: /camera/depth/image_raw
+    camera_info_topic: /camera/depth/camera_info
+    approximate_sync: true
+    sync_queue_size: 10
+    sync_slop: 0.05
+    depth_16u_scale: 0.001
+    # Only use this to correct a missing/wrong camera optical frame label.
+    # This does not transform the pose into another coordinate frame.
+    frame_id_override: ""
+
+    publish_debug_image: true
+    publish_markers: true
+    publish_tf: false
+    # 每个候选发布的点云数量上限，正整数；不足时不补齐，可运行时修改。
+    publish_point_count: 1024
+    marker_axis_length: 0.06
+    max_result_age: 2.0
+    # 默认服务请求锁定最小 track_id；目标连续丢失超过该秒数后才重新选择。
+    target_lost_timeout: 10.0
+    # 每 timing_log_every_n 帧输出一次完整分段耗时；边缘性能测试建议先关闭 debug/markers。
+    timing_log_enabled: true
+    timing_log_every_n: 1
+
+    min_point_count: 100
+    max_point_count: 6000
+    depth_outlier_threshold: 0.05
+    environment_point_step: 4
+    environment_max_depth: 1.0
+    table_ransac_iterations: 80
+    table_distance_threshold: 0.008
+    table_min_inliers: 500
+    table_max_sample_points: 8000
+    table_normal_smoothing: 0.2
+    upright_angle_threshold_deg: 25.0
+
+    # 相机只看得到朝向自己的半个瓶壳, 抓取点默认落在可见表面质心上, 比瓶轴偏向
+    # 相机约 2r/pi (Φ60mm 瓶约 19mm)。开启后拟合圆柱轴, 把抓取点移到瓶轴上。
+    # 任一判据不过就退回表面质心并打警告。
+    use_cylinder_axis: true
+    cylinder_ransac_iterations: 300
+    cylinder_max_sample_points: 1500
+    cylinder_distance_threshold: 0.004
+    # 实测真瓶 62~65%, 非瓶目标 20~28%
+    cylinder_min_inlier_ratio: 0.35
+    cylinder_min_radius: 0.010
+    cylinder_max_radius: 0.060
+    # 轴向两端各去掉这么多, 躲开瓶盖/颈肩以及瓶子与桌面的交界
+    cylinder_axial_trim: 0.25

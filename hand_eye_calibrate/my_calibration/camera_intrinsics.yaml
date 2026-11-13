@@ -1,0 +1,28 @@
+camera_name: hand_camera
+image_width: 848
+image_height: 530
+distortion_model: plumb_bob
+K:
+- - 411.62630665739704
+  - 0.0
+  - 418.16046962663347
+- - 0.0
+  - 411.37301817431
+  - 279.81736887713254
+- - 0.0
+  - 0.0
+  - 1.0
+D:
+- -0.04407486546550297
+- -0.012701763378885091
+- 0.004288466996035698
+- -0.0020525334976839687
+- 0.0014025907631415823
+metadata:
+  calib_date: 2026-09-10 16:54
+  chessboard_size:
+  - 8
+  - 6
+  square_size_m: 0.025
+  valid_images_count: 25
+  calibration_mode: eye_to_hand

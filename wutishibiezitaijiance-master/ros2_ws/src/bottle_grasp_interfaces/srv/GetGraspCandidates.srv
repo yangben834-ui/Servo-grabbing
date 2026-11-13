@@ -1,0 +1,6 @@
+# -1 returns every candidate; otherwise filter by track ID.
+int32 track_id
+---
+bool success
+string message
+bottle_grasp_interfaces/GraspCandidateArray result

@@ -1,0 +1,15 @@
+# h3001_bridge / bottle_grasp_executor 运行期依赖
+#
+# 解释器: 系统 Python 3.10 —— 即 ROS 2 Humble 自带的那一个 (/usr/bin/python3)。
+#         不是 conda 里的 python3.12, 感知脚本才用那个。
+#
+# 装法:   /usr/bin/python3 -m pip install -r requirements-ros.txt
+#
+# 版本是 2026-09-20 在开发机上实测可用的组合, 不要盲目升 numpy ——
+# ROS 2 Humble 的 python3-numpy 是 apt 装的 1.21.5, 升级会打乱系统包管理。
+
+python-can==4.6.1
+pyserial==3.5
+numpy==1.21.5
+pyyaml==5.4.1
+

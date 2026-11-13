@@ -1,0 +1,39 @@
+__pycache__/
+*.py[cod]
+Log/
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# ROS2
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# VS Code
+.vscode/
+
+# Cache
+.cache/
+
+# Temporary files
+*.log
+*.tmp
+
+# Dataset
+datasets/
+data/
+
+# note
+notes/

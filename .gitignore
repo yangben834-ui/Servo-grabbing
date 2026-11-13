@@ -1,0 +1,26 @@
+# colcon / ROS 构建产物
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.so
+
+# ROS / 本地状态
+.ros/
+.cache/
+
+# IDE
+.vscode/
+.idea/
+
+# 调参界面备份
+*.bak
+*.bak-*
+
+# 系统
+Thumbs.db
+.DS_Store
